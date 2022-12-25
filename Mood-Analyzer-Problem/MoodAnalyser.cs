@@ -23,6 +23,10 @@ namespace Mood_Analyzer_Problem
         {
             try
             {
+                if (string.IsNullOrEmpty(message))
+                {
+                    throw new MoodAnalysisException("Mood cannot be null or empty", MoodAnalysisError.NULL_OR_EMPTY_MOOD);
+                }
 
                 if (this.message.Contains("SAD"))
                 {
@@ -38,10 +42,10 @@ namespace Mood_Analyzer_Problem
                 }
                 else
                 {
-                    throw new InvalidMoodException("Invalid mood provided");
+                    throw new MoodAnalysisException("Invalid mood provided", MoodAnalysisError.INVALID_MOOD);
                 }
             }
-            catch (InvalidMoodException ex)
+            catch (MoodAnalysisException ex)
             {
                 Console.WriteLine(ex.Message);
                 return "Unknown Mood";

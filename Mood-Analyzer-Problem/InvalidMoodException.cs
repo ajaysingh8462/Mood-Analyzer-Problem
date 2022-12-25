@@ -2,23 +2,19 @@
 
 namespace Mood_Analyzer_Problem
 {
-    [Serializable]
-    internal class InvalidMoodException : Exception
+    public enum MoodAnalysisError
     {
-        public InvalidMoodException()
-        {
-        }
+        NULL_OR_EMPTY_MOOD,
+        INVALID_MOOD
+    }
 
-        public InvalidMoodException(string? message) : base(message)
-        {
-        }
+    public class MoodAnalysisException : Exception
+    {
+        public MoodAnalysisError ErrorCode { get; }
 
-        public InvalidMoodException(string? message, Exception? innerException) : base(message, innerException)
+        public MoodAnalysisException(string message, MoodAnalysisError errorCode) : base(message)
         {
-        }
-
-        protected InvalidMoodException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
+            ErrorCode = errorCode;
         }
     }
 }
