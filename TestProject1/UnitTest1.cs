@@ -6,32 +6,35 @@ using System.Text;
 using System.Threading.Tasks;
 
 
+
 namespace TestProject1
 {
     [TestClass]
-    public class UnitTest1
+    public class MoodAnlyzerTest
     {
+
         [TestMethod]
         public void Testcase1_1()
         {
-            const string sadmood = "Sad";
-            MoodAnalyser mood = new MoodAnalyser();
-            string actual = mood.Mood(sadmood);
-            string expected = "Sad";
-            Assert.AreEqual(expected, actual);
+            string expected = "SAD";
+            string message = "I am in Sad Mood";
+            MoodAnalyser moodAnalyse = new MoodAnalyser(message);
 
+            string mood = moodAnalyse.AnalyseMood();
 
+            Assert.AreEqual(expected, mood);
         }
+
         [TestMethod]
         public void Testcase1_2()
-        {
-            const string happymood = "Happy";
-            MoodAnalyser mood = new MoodAnalyser();
-            string actual = mood.Mood(happymood);
-            string expected = "Happy";
-            Assert.AreEqual(expected, actual);
+        {        
+            string expected = "HAPPY";
+            string message = "I am in HAPPY Mood";
+            MoodAnalyser moodAnalyse = new MoodAnalyser(message);
 
+            string mood = moodAnalyse.AnalyseMood();
 
+            Assert.AreEqual(expected, mood);
         }
     }
 }
