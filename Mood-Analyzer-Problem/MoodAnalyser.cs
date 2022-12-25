@@ -21,18 +21,32 @@ namespace Mood_Analyzer_Problem
 
         public string AnalyseMood()
         {
-            if (this.message.Contains("SAD"))
+            try
             {
-                Console.WriteLine("SAD");
-                return "SAD";
-                
+
+                if (this.message.Contains("SAD"))
+                {
+                    Console.WriteLine("SAD");
+                    return "SAD";
+
+                }
+                else if (this.message.Contains("HAPPY"))
+                {
+                    Console.WriteLine("HAPPY");
+                    return "HAPPY";
+
+                }
+                else
+                {
+                    throw new InvalidMoodException("Invalid mood provided");
+                }
             }
-            else
+            catch (InvalidMoodException ex)
             {
-                Console.WriteLine("happy");
-                return "HAPPY";
-                
+                Console.WriteLine(ex.Message);
+                return "Unknown Mood";
             }
+
         }
     }
 }
