@@ -19,16 +19,18 @@ namespace Mood_Analyzer_Problem
             this.message = message;
         }
 
-        public void AnalyseMood()
+        public string AnalyseMood()
         {
-            if (this.message.Contains("sad"))
+            if (this.message.Contains("SAD"))
             {
-                Console.WriteLine("sad");
+                Console.WriteLine("SAD");
+                return "SAD";
                 
             }
             else
             {
                 Console.WriteLine("happy");
+                return "HAPPY";
                 
             }
         }

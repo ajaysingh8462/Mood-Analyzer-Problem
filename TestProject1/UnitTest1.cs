@@ -17,7 +17,7 @@ namespace TestProject1
         public void Testcase1_1()
         {
             string expected = "SAD";
-            string message = "I am in Sad Mood";
+            string message = "I am in SAD Mood";
             MoodAnalyser moodAnalyse = new MoodAnalyser(message);
 
             string mood = moodAnalyse.AnalyseMood();
